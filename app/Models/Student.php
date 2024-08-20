@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Alert;
 use Illuminate\Support\Facades\Notification;
+use App\Notifications\StudentUpdated;
+use App\Models\Alert;
 
 class Student extends Model
 {
@@ -27,8 +28,16 @@ class Student extends Model
                 ]);
 
                 // Enviar notificación por correo
-                Notification::route('mail', 'admin@example.com')->notify(new \App\Notifications\StudentUpdated($message));
+                Notification::route('mail', 'admin@example.com')->notify(new StudentUpdated($message));
             }
         });
     }
+
+    // Definir relaciones si existen
+    public function alerts()
+    {
+        return $this->hasMany(Alert::class);
+    }
+
+    // Otros métodos adicionales si es necesario
 }
