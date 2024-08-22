@@ -16,10 +16,13 @@ class CreateAlertsTable extends Migration
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
-            $table->string('message');
+            $table->text('message');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
