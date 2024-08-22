@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\Alert;
 
 class StudentController extends Controller
 {
@@ -15,91 +16,42 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('home', compact('students'));
+        $alerts = Alert::orderBy('created_at', 'desc')->get();
+        return view('students.index', compact('students', 'alerts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('students.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:students',
-        ]);
 
-        Student::create($request->all());
-
-        return redirect()->route('students.index')
-                         ->with('success', 'Student created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Student $student)
+    public function edit($id)
     {
-        return view('students.show', compact('student'));
+        $student = Student::find($id);
+        return view('students.edit', ['student' => $student]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Student $student)
+    public function update(Request $request, $id)
     {
-        return view('students.edit', compact('student'));
+        $student = Student::find($id);
+        $student->nationality = $request->nationality;
+        $student->birth_department = $request->birth_department;
+        $student->birth_city = $request->birth_city;
+        $student->age = $request->age;
+        $student->gender = $request->gender;
+        $student->stratum = $request->stratum;
+        $student->pbm = $request->pbm;
+        $student->admission_type = $request->admission_type;
+        $student->faculty = $request->faculty;
+        $student->program = $request->program;
+        $student->save();
+        return redirect()->route('students.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Student $student)
+    public function destroy($id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:students,email,' . $student->id,
-        ]);
-
-        $student->update($request->all());
-
-        return redirect()->route('students.index')
-                         ->with('success', 'Student updated successfully.');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Student $student)
-    {
+        $student = Student::find($id);
         $student->delete();
-
-        return redirect()->route('students.index')
-                         ->with('success', 'Student deleted successfully.');
+        return redirect()->route('students.index');
     }
 }
