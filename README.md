@@ -1,64 +1,30 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# AudiUNAL: Aplicacion de Auditoría Continua
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introducción
+En respuesta a la necesidad de mantener la integridad y seguridad de los datos estudiantiles, se ha desarrollado una aplicación de auditoría continua para la Universidad Nacional de Colombia, sede Manizales. Este sistema se enfoca en monitorear y proteger la información de los estudiantes matriculados en el semestre 2023-2.
 
-## About Laravel
+## Objetivo de la aplicación
+El objetivo principal de esta aplicación es garantizar la precisión y confiabilidad de los datos de los estudiantes, previniendo y detectando cualquier alteración no autorizada en tiempo real.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Datos Auditados
+La aplicación audita los registros de los 4,884 estudiantes matriculados en la sede Manizales para el período 2023-2, incluyendo información personal y académica crítica.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Riesgo Identificado
+El riesgo principal identificado es la alteración no autorizada de los datos estudiantiles, lo que podría comprometer la integridad de los registros académicos y administrativos de la universidad.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Control Implementado
+Para mitigar este riesgo, hemos implementado un sistema de control robusto:
+- Monitoreo continuo de cambios en los registros de estudiantes.
+- Generación automática de alertas en tiempo real cuando se detecta una modificación en los datos.
+- Notificación instantánea al equipo auditor mediante correo electrónico para una respuesta rápida.
+- Visualización de alertas en la aplicación para un seguimiento eficiente.
 
-## Learning Laravel
+Este enfoque de auditoría continua nos permite mantener un alto nivel de seguridad y confiabilidad en los datos de los estudiantes, asegurando una respuesta inmediata ante cualquier anomalía detectada.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Implementación Técnica
+La aplicación de Auditoría Continua **AudiUNAL** ha sido desarrollado utilizando las siguientes tecnologías:
+- **Laravel:** Framework de PHP para el backend, proporcionando una estructura robusta y segura para la aplicación.
+- **MySQL:** Sistema de gestión de base de datos relacional para almacenar y gestionar eficientemente los datos de los estudiantes.
+- **Bootstrap:** Framework de CSS para el diseño frontend, asegurando una interfaz de usuario responsiva y atractiva.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Esta combinación de tecnologías nos permite crear un sistema eficiente, escalable y fácil de mantener, capaz de manejar la complejidad de la auditoría continua de datos estudiantiles.
